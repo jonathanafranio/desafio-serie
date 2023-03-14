@@ -1,0 +1,10 @@
+{
+  "name": "desafio-serie",
+  "short_name": "desafio-serie",
+  "description": "## Build Setup",
+  "icons": [],
+  "start_url": "/?standalone=true",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "lang": "pt-BR"
+}

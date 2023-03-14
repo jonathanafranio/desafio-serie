@@ -1,0 +1,35 @@
+{
+  "ModalSuccess": {
+    "description": "Auto imported from components/ModalSuccess.vue"
+  },
+  "SearchForm": {
+    "description": "Auto imported from components/SearchForm.vue"
+  },
+  "ListPostsCardPost": {
+    "description": "Auto imported from components/ListPosts/CardPost.vue"
+  },
+  "ListPost": {
+    "description": "Auto imported from components/ListPosts/ListPost.vue"
+  },
+  "ListCartProduct": {
+    "description": "Auto imported from components/ListCart/CartProduct.vue"
+  },
+  "ListCartEmptyCart": {
+    "description": "Auto imported from components/ListCart/EmptyCart.vue"
+  },
+  "ListCart": {
+    "description": "Auto imported from components/ListCart/ListCart.vue"
+  },
+  "LayoutsFooter": {
+    "description": "Auto imported from components/Layouts/Footer.vue"
+  },
+  "LayoutsHeader": {
+    "description": "Auto imported from components/Layouts/Header.vue"
+  },
+  "LayoutsLayoutDefault": {
+    "description": "Auto imported from components/Layouts/LayoutDefault.vue"
+  },
+  "Preload": {
+    "description": "Auto imported from components/Preload/Index.vue"
+  }
+}
