@@ -77,7 +77,7 @@ export default {
             const search_input = this.search.toLowerCase().trim()
             if(search_input === "") return products
             const filter_search = products.filter(p => {
-                const name = p.name.toLowerCase()
+                const name = p.title.toLowerCase()
                 return name.indexOf(search_input) > -1
             })
             return filter_search

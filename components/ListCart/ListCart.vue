@@ -10,7 +10,7 @@
             v-for="(p, i) in products"
             v-bind:key="i"
             :id="p.id"
-            :name="p.name"
+            :name="p.title"
             :category="p.category"
             :quantity="p.quantity"
             :price="p.price"
@@ -77,7 +77,7 @@ export default {
             if(products && products.length > 0) {
                 const cart = this.cart.map(p =>{
                     const product = products.filter( pro => pro.id === p.id_product )[0]
-                    const { id, category, name, price } = product
+                    const { id, category, title, price } = product
                     
                     const price_unit = price.toLocaleString("pt-br", {
                         style: "currency",
@@ -100,7 +100,7 @@ export default {
                     const product_cart = {
                         id,
                         category,
-                        name,
+                        title,
                         quantity: p.quantity,
                         price: {
                             avista: price_unit,

@@ -11,7 +11,8 @@ export const mutations = {
 }
 export const actions = {
     async get_products({ commit }, {}) {
-        const baseUrl = 'https://raw.githubusercontent.com/owInteractive/desafio-frontend-2020/master/produtos.json'
+        //const baseUrl = 'https://raw.githubusercontent.com/owInteractive/desafio-frontend-2020/master/produtos.json'
+        const baseUrl = 'https://fakestoreapi.com/products/'
         commit('update_state', { loading: true })
         let products = null;
         await fetch(`${baseUrl}`)

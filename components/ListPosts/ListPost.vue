@@ -5,11 +5,11 @@
                 v-for="post in posts"
                 v-bind:key="post.id"
                 :id_product="post.id"
-                :title="post.name"
+                :title="post.title"
                 :category="post.category" 
                 :description="post.description"
                 :price="post.price"
-                :thumb="post.imageUrl"
+                :thumb="post.image"
             )
 
 </template>
