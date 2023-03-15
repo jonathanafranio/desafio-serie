@@ -1,5 +1,7 @@
 <template lang="pug">
-    header.header
+    header.header.-active
+        div.header__upper {{ upper_txt }}
+
         div.container
             button.header__toogle-menu(@click="menu_mobile = true")
                 span.i-line
@@ -17,10 +19,24 @@
                     class="header__nav-item"
                 ) {{ link.text }}
 
-            .header__cart
-                router-link.header__cart-link(to="/cart")
-                    img.header__cart-icon(:src="cart" alt="Carrinho")
+            div.header__right
+                SearchHeader
+
+                a.header__account(href="#")
+                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.8332 16.625V15.0417C15.8332 14.2018 15.4995 13.3964 14.9057 12.8025C14.3118 12.2086 13.5064 11.875 12.6665 11.875H6.33317C5.49332 11.875 4.68786 12.2086 4.094 12.8025C3.50013 13.3964 3.1665 14.2018 3.1665 15.0417V16.625" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.50016 8.70833C11.2491 8.70833 12.6668 7.29057 12.6668 5.54167C12.6668 3.79276 11.2491 2.375 9.50016 2.375C7.75126 2.375 6.3335 3.79276 6.3335 5.54167C6.3335 7.29057 7.75126 8.70833 9.50016 8.70833Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="9.5" cy="5.5" r="3.5" fill="currentColor"/>
+                    </svg>
+ 
+                router-link.header__cart(to="/cart")
+                    CartIcon
                     span.header__cart-count {{ cart_quantity }}
+
+                .header__cart(style="display: none")
+                    router-link.header__cart-link(to="/cart")
+                        CartIcon
+                        span.header__cart-count {{ cart_quantity }}
 
             div.menu-nav-mobile(:class="menu_mobile ? '-opened' : ''")
                 button.menu-nav-mobile__btn-close(@click="menu_mobile = false")
@@ -40,29 +56,50 @@
 </template>
 
 <script>
-import SearchForm from '@/components/SearchForm'
+//import SearchForm from '@/components/SearchForm'
+import SearchHeader from './SearchHeader'
+import CartIcon from './CartIcon'
 
 export default {
     name: 'Header',
     components: {
-        SearchForm
+        SearchHeader,
+        CartIcon
     },
     data() {
         return {
-            logo: require('@/assets/img/logo.jpg'),
+            logo: require('@/assets/img/logo-seri.e.png'),
             cart: require('@/assets/img/cart.jpg'),
             menu_mobile: false,
+            upper_txt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             menu:  [
-                { text: 'Produtos', href: '/' }
+                { text: 'Shop', href: '/' },
+                { text: 'Lançamentos', href: '/' },
+                { text: 'born in chaos', href: '/' }
             ],
         }
+    },
+    watch: {
+
     },
     computed: {
         cart_quantity() {
             const cart = this.$store.state.cart.cart
             const cart_quantity = cart.map( p => p.quantity )
             return cart.length > 0 ? cart_quantity.reduce( ( total, quantity) => total + quantity ) : 0
+        },
+    },
+    created() {
+        if(process.browser) {
+            window.addEventListener("scroll", function () {
+                const [height, scrollY] = [window.screen.height, window.scrollY];
+                if(scrollY < height) {
+                    this.document.querySelector('.header').classList.remove('-active');
+                } else {
+                    this.document.querySelector('.header').classList.add('-active');
+                }
+            });
         }
-    }
+    },
 }
 </script>

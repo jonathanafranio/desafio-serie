@@ -2,21 +2,30 @@
 	width: 100%;
 	position: fixed;
 	top: 0;
-	background-color: $bg_header;
 	z-index: 9999;
+	color: $font_header;
 
-	@media screen and (max-width: 1023px) {
-		height: 54px;
+	&.-active {
+		background-color: $bg_header;
 	}
 
-	@media screen and (min-width: 1024px) {
-		height: 132px;
+	&__upper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 30px;
+		background-color: $bg_header;
+		font-size: 1rem;
+		font-weight: 600;
+		line-height: 1.2rem; 
 	}
 
+	
 	.container {
 		display: flex;
 		align-items: center;
-		height: 100%;
+		padding: 16px 0;
 
 		@media screen and (max-width: 1023px) {
 			justify-content: center;
@@ -29,7 +38,7 @@
 
 	&__nav {
 		@media screen and (min-width: 1024px) {
-			margin-left: auto;
+			margin: 0 40px 0 auto;
 		}
 		@media screen and (max-width: 1023px) {
 			display: none;
@@ -37,56 +46,132 @@
 	}
 
 	&__nav-item {
-		color: #909090;
+		color: $font_header;
+		font-size: 1.4rem;
 		font-weight: 700;
+		line-height: 1.7rem;
+		text-transform: uppercase;
 		@media screen and (min-width: 1024px) {
-			margin: auto 10px;
+			margin: auto 5px;
+		}
+	}
 
-			&:last-child {
-				margin-right: 0px;
+	&__right {
+		display: flex;
+		@media screen and (max-width: 1023px) {
+			position: absolute;
+			right: 15px;
+		}
+	}
+
+	&__search {
+		@media screen and (max-width: 1023px) {
+			display: none;
+		}
+		@media screen and (min-width: 1024px) {
+			width: 263px;
+			display: flex;
+			justify-content: flex-end;
+			position: relative;
+		}
+
+		&-btn {
+			background-color: transparent;
+			border: none;
+			height: 19px;
+		}
+
+		&-close {
+			display: none;
+		}
+
+		&-input {
+			@media screen and (min-width: 1024px) {
+				width: 122px;
+				height: 19px;
+				padding: 0 13px;
+				font-size: 1rem;
+				font-family: $second-font;
+				text-transform: uppercase;
+				color: $font_header;
+				background-color: transparent;
+				border: 1px solid transparent;
+				transition: border-color 0.7s, width 0.7s ease-in-out;
+				will-change: border-color, width;
+
+				@include placeholder-form($font_header, $second-font, 400);
+			}
+			&:focus {
+				@media screen and (min-width: 1024px) {
+					width: 239px;
+					border-color: $font_header;
+					outline: none;
+				}
+
+				& + .header__search-close {
+					display: flex;
+					align-items: center;
+					height: 19px;
+					position: absolute;
+					top: 0;
+					right: 5px;
+				}
+			}
+		}
+
+	}
+
+	&__account {
+		margin-left: 16px;
+		color: $font_header;
+
+		svg {
+			circle {
+				opacity: 0;
+				transition: opacity 0.7s ease-in-out;
+				will-change: opacity;
+			}
+		}
+
+		&:hover {
+			svg {
+				circle {
+					opacity: 1;
+				}
 			}
 		}
 	}
 
-	&__logo {
-		@media screen and (max-width: 1023px) {
-			width: 165px;
-			margin: auto;
-		}
-	}
-
+	&__account,
 	&__cart {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		color: $font_header;
 
+	}
+	
+	&__cart {
+		@media screen and (max-width: 1023px) {
+			margin-left: 15px;
+		}
 		@media screen and (min-width: 1024px) {
-			width: 8.3333333333%;
+			margin-left: 32px;
 		}
-		
-		&-link,
-		&-count {
-			display: flex;
-			justify-content: center;
-			
-		}
-
-		&-icon {
-			width: 38px;
-			height: 38px;
-		}
-
 		&-link {
 			align-items: flex-end;
 		}
 
 		&-count {
+			display: flex;
+			justify-content: center;
 			align-items: center;
-			width: 15px;
-			height: 15px;
+			width: 18px;
+			height: 18px;
+			margin-left: 4px;
 			border-radius: 50%;
-			background-color: #ed1c24;
-			color: $light-main;
+			background-color: $font_header;
+			color: $bg_header;
 			font-size: 1rem;
 			font-weight: 900;
 		}
@@ -112,7 +197,7 @@
 				width: 35px;
 				height: 4px;
 				margin: 0 0 6px 0;
-				background-color: $dark-text;
+				background-color: $font_header;
 			}
 		}
 	}

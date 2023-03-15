@@ -1,10 +1,11 @@
-$main-font: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+$main-font: 'Montserrat', Arial, sans-serif;
+$second-font: 'Arimo', Helvetica, sans-serif;
 
 // ========================================
 // Colors
 // ========================================
 $light-main: #fff;
-$main-color: #8e36b7;
+$main-color: #141414;
 
 $light-text: $main-color;
 $text-color: #717171;
@@ -12,7 +13,8 @@ $dark-text: #3e3e3e;
 $link-defalt: $main-color;
 
 $bg_footer: #bbb;
-$bg_header: #fff;
+$bg_header: #141414;
+$font_header: #fff;
 $txt_footer: $light-main;
 
 // ========================================
@@ -31,5 +33,5 @@ $v-margin: 25px;
 // ========================================
 // Grids - Sizes and Columns
 // ========================================
-$max-size: 1140px;
+$max-size: 1170px;
 $sizes: (mx,$max-size,12,last), (df,1023px,12), (md,767px,12), (sm,600px,6), (ph,520px,2);
