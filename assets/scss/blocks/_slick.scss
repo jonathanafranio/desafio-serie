@@ -1,6 +1,6 @@
 .slick-slider {
     .page-section-products & {
-        padding-top: 24px;
+        padding-top: 30px;
     }
 }
 .slick-arrow {
@@ -21,4 +21,9 @@
         right: 0;
         background-image: url('./assets/img/arrow-next.png');
     }
+}
+
+.slick-list {
+    // [1] important para sobreescrever o padrão do slick, não gosto de usar !importante mas pra esse caso não achei outra solução
+    overflow: visible !important; // [1]
 }

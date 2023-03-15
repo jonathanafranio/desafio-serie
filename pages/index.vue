@@ -12,7 +12,16 @@
                 :title="video.title"
                 :url_embed="video.url"
             )
-            
+
+            section.page-section-colecao
+                h2.page-section__title Coleção
+                a.page-section__banner-full(href="#")
+                    img(:src="bannerfull" alt="Coleção")
+
+            SlickProducts(
+                title="Destaques"
+                :products="products"
+            )
 
 
 
@@ -54,7 +63,8 @@ export default {
             video: {
                 title: '#youtube',
                 url: 'https://www.youtube.com/embed/2K0q74jtV8s'
-            }
+            },
+            bannerfull: require('@/assets/img/banner-full.jpg')
         }
     },
     methods: {
