@@ -94,4 +94,73 @@
             }
         }
     }
+
+    &__whats {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        right: 30px;
+        bottom: 60px;
+        color: #fff;
+        background-color: #000;
+        border-radius: 30px;
+        transition: width 0.7s ease-in-out;
+        will-change: width;
+
+        &::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border: 5px solid #000;
+            position: absolute;
+            right: 3px;
+            bottom: 3px;
+            border-top-color: transparent;
+            border-left-color: transparent;
+        }
+
+
+        &:hover {
+            width: 265px;
+            justify-content: normal;
+            
+            text-decoration: none;
+        }
+
+        &-img {
+            transition: opacity 0.7s ease-in-out;
+            will-change: opacity;
+            .footer__whats:hover & {
+                opacity: 0;
+                display: none;
+            }
+        }
+
+        &-span {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 30px;
+            width: 193px;
+            position: absolute;
+            right: -265px;
+            font-family: $second-font;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+            font-style: italic;
+            opacity: 0;
+
+            transition: right 0.7s, opacity 0.8s ease-in-out;
+            will-change: right, opacity;
+            .footer__whats:hover & {
+                right: 0;
+                opacity: 1;
+            }
+        }
+    }
 }
