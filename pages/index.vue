@@ -2,20 +2,19 @@
     LayoutDefault
         BannersDestaques(:banners="heros")
             
-        main 
-            section.page-section-products(v-if="products.length > 0")
-                h2.page-section__title Destaques
-                VueSlickCarousel(v-bind="slick_products")
-                    CardPost(
-                        v-for="post in products"
-                        v-bind:key="post.id"
-                        :id_product="post.id"
-                        :title="post.title"
-                        :description="post.description"
-                        :price="post.price"
-                        :thumb="post.image"
-                    )
-            Preload(v-else)
+        main
+            SlickProducts(
+                title="Destaques"
+                :products="products"
+            )
+
+            Video(
+                :title="video.title"
+                :url_embed="video.url"
+            )
+            
+
+
 
             
 
@@ -25,19 +24,16 @@
 <script>
 import LayoutDefault from '@/components/Layouts/LayoutDefault'
 import BannersDestaques from '@/components/BannersDestaques'
-import CardPost from '@/components/ListPosts/CardPost'
-import Preload from '@/components/Preload/Index'
-import VueSlickCarousel from 'vue-slick-carousel'
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import SlickProducts from '@/components/ListPosts/SlickProducts'
+import Video from '@/components/Video'
 
 export default {
     name: 'IndexPage',
     components: {
         LayoutDefault,
         BannersDestaques,
-        CardPost,
-        Preload,
-        VueSlickCarousel
+        SlickProducts,
+        Video
     },
     data(){
         return {
@@ -55,19 +51,9 @@ export default {
                     title: 'Lorem Ipsum Dolor',
                 }
             ],
-            slick_products: {
-                centerMode: true,
-                dots: false,
-                arrows: true,
-                dotsClass: "slick-dots",
-                edgeFriction: 0.35,
-                infinite: false,
-                speed: 500,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                //autoplay: true,
-                infinite: true,
-                adaptiveHeight: true
+            video: {
+                title: '#youtube',
+                url: 'https://www.youtube.com/embed/2K0q74jtV8s'
             }
         }
     },
