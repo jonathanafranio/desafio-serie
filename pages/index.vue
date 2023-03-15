@@ -10,7 +10,6 @@
             
         main.container
             section.page-section
-                SearchForm(v-on:search-product="changeSearch")
                 
                 ListPosts(
                     v-if="products"
@@ -28,7 +27,6 @@
 import LayoutDefault from '@/components/Layouts/LayoutDefault'
 import BannersDestaques from '@/components/BannersDestaques'
 import ListPosts from '@/components/ListPosts/ListPost'
-import SearchForm from '@/components/SearchForm'
 import Preload from '@/components/Preload/Index'
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
@@ -39,7 +37,6 @@ export default {
         LayoutDefault,
         BannersDestaques,
         ListPosts,
-        SearchForm,
         Preload,
         VueSlickCarousel
     },
@@ -52,11 +49,11 @@ export default {
                     title: 'Lorem Ipsum Dolor',
                 },
                 {
-                    image: require('@/assets/img/bnn_1.jpg'),
+                    image: require('@/assets/img/bnn_2.jpg'),
                     title: 'Lorem Ipsum Dolor',
                 },
                 {
-                    image: require('@/assets/img/bnn_1.jpg'),
+                    image: require('@/assets/img/bnn_3.jpg'),
                     title: 'Lorem Ipsum Dolor',
                 }
             ],

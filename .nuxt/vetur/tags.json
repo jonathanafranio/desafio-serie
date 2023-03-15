@@ -8,9 +8,6 @@
   "Newsletter": {
     "description": "Auto imported from components/Newsletter.vue"
   },
-  "SearchForm": {
-    "description": "Auto imported from components/SearchForm.vue"
-  },
   "ListCartProduct": {
     "description": "Auto imported from components/ListCart/CartProduct.vue"
   },
@@ -35,13 +32,13 @@
   "LayoutsSearchHeader": {
     "description": "Auto imported from components/Layouts/SearchHeader.vue"
   },
-  "Preload": {
-    "description": "Auto imported from components/Preload/Index.vue"
-  },
   "ListPostsCardPost": {
     "description": "Auto imported from components/ListPosts/CardPost.vue"
   },
   "ListPost": {
     "description": "Auto imported from components/ListPosts/ListPost.vue"
+  },
+  "Preload": {
+    "description": "Auto imported from components/Preload/Index.vue"
   }
 }

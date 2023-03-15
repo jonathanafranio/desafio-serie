@@ -1,5 +1,8 @@
 # Desafio FrontEnd - Seri.e Design
 
+## Layout:
+[Figma](https://www.figma.com/proto/Q1p4dwPcasnniRIXp0K4Tz/Template-Glowshine?page-id=0%3A1&node-id=202%3A3654&viewport=-119%2C662%2C0.14&scaling=scale-down&starting-point-node-id=202%3A253)
+
 ## Build Setup
 
 ```bash
