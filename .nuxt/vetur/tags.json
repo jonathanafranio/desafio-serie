@@ -1,9 +1,24 @@
 {
+  "BannersDestaques": {
+    "description": "Auto imported from components/BannersDestaques.vue"
+  },
   "ModalSuccess": {
     "description": "Auto imported from components/ModalSuccess.vue"
   },
+  "Newsletter": {
+    "description": "Auto imported from components/Newsletter.vue"
+  },
   "SearchForm": {
     "description": "Auto imported from components/SearchForm.vue"
+  },
+  "ListCartProduct": {
+    "description": "Auto imported from components/ListCart/CartProduct.vue"
+  },
+  "ListCartEmptyCart": {
+    "description": "Auto imported from components/ListCart/EmptyCart.vue"
+  },
+  "ListCart": {
+    "description": "Auto imported from components/ListCart/ListCart.vue"
   },
   "LayoutsCartIcon": {
     "description": "Auto imported from components/Layouts/CartIcon.vue"
@@ -20,22 +35,13 @@
   "LayoutsSearchHeader": {
     "description": "Auto imported from components/Layouts/SearchHeader.vue"
   },
-  "ListCartProduct": {
-    "description": "Auto imported from components/ListCart/CartProduct.vue"
-  },
-  "ListCartEmptyCart": {
-    "description": "Auto imported from components/ListCart/EmptyCart.vue"
-  },
-  "ListCart": {
-    "description": "Auto imported from components/ListCart/ListCart.vue"
+  "Preload": {
+    "description": "Auto imported from components/Preload/Index.vue"
   },
   "ListPostsCardPost": {
     "description": "Auto imported from components/ListPosts/CardPost.vue"
   },
   "ListPost": {
     "description": "Auto imported from components/ListPosts/ListPost.vue"
-  },
-  "Preload": {
-    "description": "Auto imported from components/Preload/Index.vue"
   }
 }

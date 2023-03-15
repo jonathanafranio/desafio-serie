@@ -1,5 +1,6 @@
 <template lang="pug">
     LayoutDefault
+        BannersDestaques(:banners="heros")
         VueSlickCarousel(v-bind="slick")
             div(
                 v-for="banner in banners"
@@ -25,6 +26,7 @@
 
 <script>
 import LayoutDefault from '@/components/Layouts/LayoutDefault'
+import BannersDestaques from '@/components/BannersDestaques'
 import ListPosts from '@/components/ListPosts/ListPost'
 import SearchForm from '@/components/SearchForm'
 import Preload from '@/components/Preload/Index'
@@ -35,6 +37,7 @@ export default {
     name: 'IndexPage',
     components: {
         LayoutDefault,
+        BannersDestaques,
         ListPosts,
         SearchForm,
         Preload,
@@ -43,6 +46,20 @@ export default {
     data(){
         return {
             search: '',
+            heros: [
+                {
+                    image: require('@/assets/img/bnn_1.jpg'),
+                    title: 'Lorem Ipsum Dolor',
+                },
+                {
+                    image: require('@/assets/img/bnn_1.jpg'),
+                    title: 'Lorem Ipsum Dolor',
+                },
+                {
+                    image: require('@/assets/img/bnn_1.jpg'),
+                    title: 'Lorem Ipsum Dolor',
+                }
+            ],
             banners: [
                 {
                     image: require('@/assets/img/banner_1.jpg'),

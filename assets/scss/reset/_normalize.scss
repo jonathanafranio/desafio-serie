@@ -109,7 +109,10 @@ input {
 		}
 	}
 	
-	
+	&:focus {
+		outline: none;
+	}
+
 	&[disabled] {
 		border-color: transparent;
 		background: transparent;

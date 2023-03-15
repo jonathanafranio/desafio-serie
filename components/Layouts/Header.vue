@@ -1,5 +1,5 @@
 <template lang="pug">
-    header.header.-active
+    header.header
         div.header__upper {{ upper_txt }}
 
         div.container
@@ -69,7 +69,6 @@ export default {
     data() {
         return {
             logo: require('@/assets/img/logo-seri.e.png'),
-            cart: require('@/assets/img/cart.jpg'),
             menu_mobile: false,
             upper_txt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             menu:  [
@@ -92,7 +91,9 @@ export default {
     created() {
         if(process.browser) {
             window.addEventListener("scroll", function () {
-                const [height, scrollY] = [window.screen.height, window.scrollY];
+                const first_banners = document.querySelectorAll('.heros__item')[0].clientHeight
+                //const [height, scrollY] = [window.screen.height, window.scrollY];
+                const [height, scrollY] = [first_banners, window.scrollY];
                 if(scrollY < height) {
                     this.document.querySelector('.header').classList.remove('-active');
                 } else {
