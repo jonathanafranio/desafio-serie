@@ -31,9 +31,11 @@ export default {
             }
         }
     },
+    beforeMount() {
+        this.tras_products();
+    },
     created() {
         this.cartLoad();
-        this.tras_products();
     }
 }
 </script>

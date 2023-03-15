@@ -1,22 +1,21 @@
 <template lang="pug">
     LayoutDefault
         BannersDestaques(:banners="heros")
-        VueSlickCarousel(v-bind="slick")
-            div(
-                v-for="banner in banners"
-                v-bind:key="banner.image"
-            )
-                img(:src="banner.image", :alt="banner.alt")
             
-        main.container
-            section.page-section
-                
-                ListPosts(
-                    v-if="products"
-                    :posts="products"
-                )
-
-                Preload(v-else)
+        main 
+            section.page-section-products(v-if="products.length > 0")
+                h2.page-section__title Destaques
+                VueSlickCarousel(v-bind="slick_products")
+                    CardPost(
+                        v-for="post in products"
+                        v-bind:key="post.id"
+                        :id_product="post.id"
+                        :title="post.title"
+                        :description="post.description"
+                        :price="post.price"
+                        :thumb="post.image"
+                    )
+            Preload(v-else)
 
             
 
@@ -26,7 +25,7 @@
 <script>
 import LayoutDefault from '@/components/Layouts/LayoutDefault'
 import BannersDestaques from '@/components/BannersDestaques'
-import ListPosts from '@/components/ListPosts/ListPost'
+import CardPost from '@/components/ListPosts/CardPost'
 import Preload from '@/components/Preload/Index'
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
@@ -36,13 +35,12 @@ export default {
     components: {
         LayoutDefault,
         BannersDestaques,
-        ListPosts,
+        CardPost,
         Preload,
         VueSlickCarousel
     },
     data(){
         return {
-            search: '',
             heros: [
                 {
                     image: require('@/assets/img/bnn_1.jpg'),
@@ -57,44 +55,30 @@ export default {
                     title: 'Lorem Ipsum Dolor',
                 }
             ],
-            banners: [
-                {
-                    image: require('@/assets/img/banner_1.jpg'),
-                    alt: 'NOTEBOOKS As melhores ofertas'
-                },
-                {
-                    image: require('@/assets/img/banner_2.jpg'),
-                    alt: 'Smartphone Confira as últimas novidades'
-                }
-            ],
-            slick: {
-                dots: true,
-                arrows: false,
+            slick_products: {
+                centerMode: true,
+                dots: false,
+                arrows: true,
                 dotsClass: "slick-dots",
                 edgeFriction: 0.35,
                 infinite: false,
                 speed: 500,
-                slidesToShow: 1,
-                slidesToScroll: 1
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                //autoplay: true,
+                infinite: true,
+                adaptiveHeight: true
             }
         }
     },
     methods: {
-        changeSearch(newValue) {
-            this.search = newValue
-        },
     },
     created() {},
     computed: {
         products() {
             const products = this.$store.state.products.products
-            const search_input = this.search.toLowerCase().trim()
-            if(search_input === "") return products
-            const filter_search = products.filter(p => {
-                const name = p.title.toLowerCase()
-                return name.indexOf(search_input) > -1
-            })
-            return filter_search
+            
+            return products
         },
     }
 }

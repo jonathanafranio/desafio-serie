@@ -1,19 +1,16 @@
 <template lang="pug">
-    article.card-post.mx-4.md-6.sm-6
+    article.card-post
         .card-post__container
             figure.card-post__figure(:class="!thumb ? '-silver' : ''")
                 img(:src="thumb" :alt="title" v-if="thumb")
                 img(:src="alt_thumb" :alt="title" v-else)
 
             .card-post__text
-                span.card-post__categ {{ category }}
                 h3.card-post__title {{ title }}
-
-                div.card-post__excerpt {{ description }}
-
+                span.card-post__old-price {{ simularDe }}
                 strong.card-post__price {{ priceReal }}
 
-            a.card-post__link(@click.prevent="addProd(id_product)") Adicionar ao carrinho
+            a.card-post__link(@click.prevent="addProd(id_product)")
 
 
 </template>
@@ -22,8 +19,6 @@ export default {
     props: {
         id_product: Number,
         title: String,
-        category: String,
-        description: String,
         price: Number,
         thumb: String,
 
@@ -43,6 +38,13 @@ export default {
         },
     },
     computed: {
+        simularDe() {
+            const old_price = this.price + 15;
+            return old_price.toLocaleString("pt-br", {
+                style: "currency",
+                currency: "BRL",
+            });
+        },
         priceReal() {
             return this.price.toLocaleString("pt-br", {
                 style: "currency",

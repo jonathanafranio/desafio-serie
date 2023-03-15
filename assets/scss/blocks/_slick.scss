@@ -1,0 +1,24 @@
+.slick-slider {
+    .page-section-products & {
+        padding-top: 24px;
+    }
+}
+.slick-arrow {
+    position: absolute;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    font-size: 0px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    &.slick-prev {
+        left: 0;
+        background-image: url('./assets/img/arrow-prev.png');
+    }
+    &.slick-next {
+        right: 0;
+        background-image: url('./assets/img/arrow-next.png');
+    }
+}
