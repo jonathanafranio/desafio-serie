@@ -5,11 +5,13 @@
     @media screen and (min-width: 1024px) {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         width: 370px;
-        padding-top: 30px;
+        height: 100vh;
         position: absolute;
         right: 0;
-        top: 100%;
+        top: 0;
+        background-color: #fff;
         &__header {
             display: flex;
             align-items: center;
@@ -40,7 +42,8 @@
         &__container {
             display: flex;
             flex-direction: column;
-            height: 45vh;
+            height: calc(100% - 211px);
+            min-height: 50vh;
             padding-bottom: 78px;
             background-color: $font_header;
             color: $bg_header;

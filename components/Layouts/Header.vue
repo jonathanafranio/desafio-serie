@@ -32,16 +32,11 @@
                         <circle cx="9.5" cy="5.5" r="3.5" fill="currentColor"/>
                     </svg>
  
-                div.header__cart-wrap
-                    a.header__cart(href="#" @click.prevent="toggleCart")
-                        CartIcon
-                        span.header__cart-count {{ cart_quantity }}
+                a.header__cart(href="#" @click.prevent="toggleCart")
+                    CartIcon
+                    span.header__cart-count {{ cart_quantity }}
 
-                    CartHeader(
-                        :cart_quantity="cart_quantity"
-                        v-if="cart_open" 
-                        v-on:close-cart="toggleCart"
-                    )
+                    
 
             div.menu-nav-mobile(:class="menu_mobile ? '-opened' : ''")
                 button.menu-nav-mobile__btn-close(@click="menu_mobile = false")
@@ -55,6 +50,13 @@
                                 v-bind:key="`mobile ${link.href}`"
                             )
                                 router-link(:to="link.href") {{ link.text }}
+
+
+        CartHeader(
+            :cart_quantity="cart_quantity"
+            v-if="cart_open" 
+            v-on:close-cart="toggleCart"
+        )
                     
 
 
@@ -79,7 +81,87 @@ export default {
             upper_txt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             menu:  [
                 { text: 'Shop', href: '/' },
-                { text: 'Lançamentos', href: '/' },
+                { 
+                    text: 'Lançamentos',
+                    href: '/',
+                    children: {
+                        type: 'frame-1',
+                        banners: [
+                            {
+                                link: '',
+                                image: require('@/assets/img/link-01.jpg'),
+                            },
+                            {
+                                link: '',
+                                image: require('@/assets/img/link-02.jpg'),
+                            },
+                            {
+                                link: '',
+                                image: require('@/assets/img/link-03.jpg'),
+                            }
+                        ],
+                        nav: [
+                            {
+                                title: 'Vestuário',
+                                links: [
+                                    {
+                                        link: '#',
+                                        text: 'camisetas',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Calças',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Moletons',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Cropped',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Shorts',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Jaqueta',
+                                    }
+                                ]
+                            },
+                            {
+                                title: 'Acessórios',
+                                links: [
+                                    {
+                                        link: '#',
+                                        text: 'camisetas',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Calças',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Moletons',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Cropped',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Shorts',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Jaqueta',
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
                 { text: 'born in chaos', href: '/' }
             ],
             page_atual: this.$route.name,
