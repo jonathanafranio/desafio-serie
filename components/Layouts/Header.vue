@@ -11,16 +11,8 @@
             a.header__logo(href="/" title="MKT Place")
                 img(:src="logo" alt="MKT Place")
 
-            nav.header__nav(v-if="menu")
-                ul
-                    li(
-                        v-for="link in menu"
-                        v-bind:key="`desktop ${link.href}`"
-                    )
-                        router-link(
-                            :to="link.href"
-                            class="header__nav-item"
-                        ) {{ link.text }}
+            MenuDesk(:menu="menu")
+
 
             div.header__right
                 SearchHeader
@@ -66,13 +58,15 @@
 import SearchHeader from './SearchHeader'
 import CartIcon from './CartIcon'
 import CartHeader from './CartHeader'
+import MenuDesk from './Menu/MenuDesk'
 
 export default {
     name: 'Header',
     components: {
         SearchHeader,
         CartIcon,
-        CartHeader
+        CartHeader,
+        MenuDesk
     },
     data() {
         return {
@@ -80,23 +74,26 @@ export default {
             menu_mobile: false,
             upper_txt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             menu:  [
-                { text: 'Shop', href: '/' },
-                { 
-                    text: 'Lançamentos',
-                    href: '/',
+                {
+                    text: 'Shop', 
+                    href: '/', 
                     children: {
+                        show: false,
                         type: 'frame-1',
                         banners: [
                             {
                                 link: '',
+                                text: 'Texto 1',
                                 image: require('@/assets/img/link-01.jpg'),
                             },
                             {
                                 link: '',
+                                text: 'Texto 2',
                                 image: require('@/assets/img/link-02.jpg'),
                             },
                             {
                                 link: '',
+                                text: 'Texto 3',
                                 image: require('@/assets/img/link-03.jpg'),
                             }
                         ],
@@ -105,27 +102,51 @@ export default {
                                 title: 'Vestuário',
                                 links: [
                                     {
-                                        link: '#',
+                                        url: '#',
                                         text: 'camisetas',
                                     },
                                     {
-                                        link: '#',
+                                        url: '#',
                                         text: 'Calças',
                                     },
                                     {
-                                        link: '#',
+                                        url: '#',
                                         text: 'Moletons',
                                     },
                                     {
-                                        link: '#',
+                                        url: '#',
                                         text: 'Cropped',
                                     },
                                     {
-                                        link: '#',
+                                        url: '#',
                                         text: 'Shorts',
                                     },
                                     {
-                                        link: '#',
+                                        url: '#',
+                                        text: 'Jaqueta',
+                                    },
+                                    {
+                                        url: '#',
+                                        text: 'camisetas',
+                                    },
+                                    {
+                                        url: '#',
+                                        text: 'Calças',
+                                    },
+                                    {
+                                        url: '#',
+                                        text: 'Moletons',
+                                    },
+                                    {
+                                        url: '#',
+                                        text: 'Cropped',
+                                    },
+                                    {
+                                        url: '#',
+                                        text: 'Shorts',
+                                    },
+                                    {
+                                        url: '#',
                                         text: 'Jaqueta',
                                     }
                                 ]
@@ -156,10 +177,59 @@ export default {
                                     {
                                         link: '#',
                                         text: 'Jaqueta',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'camisetas',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Calças',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Moletons',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Cropped',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Shorts',
+                                    },
+                                    {
+                                        link: '#',
+                                        text: 'Jaqueta',
                                     }
                                 ]
                             }
                         ]
+                    }
+                },
+                { 
+                    text: 'Lançamentos',
+                    href: '/',
+                    children: {
+                        show: false,
+                        type: 'frame-2',
+                        banners: [
+                            {
+                                link: '',
+                                text: 'COLEÇAO VERÃO',
+                                image: require('@/assets/img/link-1b.jpg'),
+                            },
+                            {
+                                link: '',
+                                text: 'COLEÇAO COPA',
+                                image: require('@/assets/img/link-2b.jpg'),
+                            },
+                            {
+                                link: '',
+                                text: 'COLEÇAO glowshine',
+                                image: require('@/assets/img/link-3b.jpg'),
+                            }
+                        ],
                     }
                 },
                 { text: 'born in chaos', href: '/' }
@@ -175,7 +245,7 @@ export default {
             } else {
                 this.$router.push({ path: '/cart' })
             }
-        }
+        },
     },
     computed: {
         cart_quantity() {
