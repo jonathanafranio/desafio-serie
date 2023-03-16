@@ -1,11 +1,12 @@
 <template lang="pug">
-    div.header__nav-submenu.frame-2(v-if="submenu.show")
+    div.header__nav-submenu.frame-2
         div.header__nav-banners
             a.header__nav-banner(
                 v-for="banner in submenu.banners" :key="banner.link"
                 :href="banner.link"
             )
-                img(:src="banner.image" :alt="banner.text")
+                div.header__wrap-img
+                    img(:src="banner.image" :alt="banner.text")
 
                 strong.header__frame2-txt {{ banner.text }}
 

@@ -75,10 +75,10 @@ export default {
             upper_txt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             menu:  [
                 {
+                    id: 1,
                     text: 'Shop', 
                     href: '/', 
                     children: {
-                        show: false,
                         type: 'frame-1',
                         banners: [
                             {
@@ -207,11 +207,11 @@ export default {
                         ]
                     }
                 },
-                { 
+                {
+                    id: 2, 
                     text: 'Lançamentos',
                     href: '/',
                     children: {
-                        show: false,
                         type: 'frame-2',
                         banners: [
                             {
@@ -232,7 +232,7 @@ export default {
                         ],
                     }
                 },
-                { text: 'born in chaos', href: '/' }
+                { id: 3, text: 'born in chaos', href: '/' }
             ],
             page_atual: this.$route.name,
             cart_open: false,

@@ -1,12 +1,12 @@
 <template lang="pug">
-    div.header__nav-submenu.frame-1(v-if="submenu.show")
+    div.header__nav-submenu.frame-1
         a.header__nav-banner(
             v-for="banner in submenu.banners" :key="banner.link"
             :href="banner.link"
         )
             img(:src="banner.image" :alt="banner.text")
         .header__submenu(v-if="submenu.nav")
-            span.header__submenu-close(@click="submenu.show = false")
+            span.header__submenu-close(@click="closeItem")
                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 4L2 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M4 6L2 4L4 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -33,7 +33,12 @@
     export default {
         props: {
             submenu: Object
-        } 
+        },
+        methods: {
+            closeItem() {
+                this.$emit('close');
+            }
+        },
     }
 </script>
 

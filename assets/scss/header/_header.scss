@@ -51,6 +51,9 @@
 		> ul {
 			> li {
 				display: inline-block;
+				.-active {
+					text-decoration: underline;
+				}
 			}
 		}
 	}
@@ -67,12 +70,12 @@
 	}
 
 	&__nav-submenu {
-		
+		margin-top: 32px;
 		width: 100%;
+		padding: 10px;
 		position: absolute;
 		left: 0;
 		background-color: #fff;
-		padding: 10px;
 		&.frame-1 {
 			display: grid;
 			gap: 10px;
@@ -106,6 +109,27 @@
 				margin-left: 10px;
 			}
 		}
+	}
+
+	&__nav-banner {
+		width: 100%;
+		overflow: hidden;
+		img {
+			transition: transform 0.7s ease-in-out;
+			will-change: transform;
+		}
+
+		&:hover {
+			img {
+				transform: scale(1.1);
+			}
+		}
+	}
+
+	&__wrap-img {
+		width: 100%;
+		display: flex;
+		overflow: hidden;
 	}
 
 	&__nav-banners {
