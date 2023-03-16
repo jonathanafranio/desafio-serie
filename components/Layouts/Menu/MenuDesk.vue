@@ -1,10 +1,9 @@
 <template lang="pug">
     nav.header__nav(v-if="menu")
-        teste
         ul
             li(
                 v-for="link in menu"
-                v-bind:key="`desktop ${link.href}`"
+                v-bind:key="link.href"
             )
                 a(
                     :to="link.href"

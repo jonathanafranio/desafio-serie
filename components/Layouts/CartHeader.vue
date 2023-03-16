@@ -35,7 +35,7 @@
             span Total a pagar:
             span.smart-cart__ft-total {{ total.toLocaleString("pt-br", { style: "currency", currency: "BRL" }) }}
             
-            router-link.smart-cart__btn(to="/cart") Comprar
+            a.smart-cart__btn(href="/cart") Comprar
 
             a.smart-cart__out-btn(href="#" @click.prevent="close") Continuar comprando
                             
