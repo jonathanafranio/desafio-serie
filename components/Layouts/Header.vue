@@ -88,7 +88,7 @@ export default {
             if(window.screen.width > 1024) {
                 this.cart_open = ! this.cart_open
             } else {
-                this.$route.push('/cart')
+                this.$router.push({ path: '/cart' })
             }
         }
     },
