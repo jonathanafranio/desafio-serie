@@ -5,11 +5,8 @@
             :key="item.image"
         )
             a.heros__wrap-img(
-                v-if="item.link" 
                 :href="item.link"
             )
-                img(:src="item.image", :alt="item.title")
-            div.heros__wrap-img(v-else)
                 img(:src="item.image", :alt="item.title")
 </template>
 
