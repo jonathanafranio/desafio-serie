@@ -24,6 +24,10 @@ $ npm run generate
 ```
 Nesse desafio, usei PUG, para facilitar na marcação do HTML. 
 
+## API
+
+Para trazer os produtos dinamicamente, usei a API: [Fake Store API](https://fakestoreapi.com/). Todos os produtos dos grids estão sendo puxado desta API, inclusive as fotos.
+
 ## Diretórios 
 
 ### `assets`
