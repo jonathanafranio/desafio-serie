@@ -35,13 +35,20 @@ Segue a lista dos componetes renderizados em todo site:
 - `Layouts/LayoutDefault.vue`: Componente com markup geral do site, que puxa o header, footer e o 'slot' que traz o markup da rota acessada, alem de verificar o localStorage 'cart';
 - `Layouts/Header.vue`: Componente com markup do cabecalho;
 - `Layouts/Footer.vue`: Componente com markup do rodapé;
+- `Layouts/SearchHeader.vue`: Components com markup do formulário de busca;
+- `Layouts/CartIcon.vue`: Components com markup do svg do carrinho;
+- `Layouts/Menu/MenuDesk.vue`: Components com markup do menu principal;
+- `Layouts/Menu/SubMenu1.vue`: Components com markup do sub menu 1;
+- `Layouts/Menu/CartIcon.vue`: Components com markup do sub menu 2;
+- `Newsletter.vue`: Components com markup do formulário de newsletter, chamado dentro do `Layouts/Footer.vue`;
+
 
 Segue a lista dos componetes renderizados na página principal com os produtos:
-- `VueSlickCarousel`: Componente do plugin: "vue-slick-carousel", para fazer o carousel do banner principal, diferente dos demais componente, esse componente não tem um arquivo .vue dele, porque ele é um plugin para fazer o carousel;
-- `SearchForm.vue`: Componente com markup do formulário de busca na 1ª página;
-- `ListPosts/ListPosts.vue`: Componente com lista dos produtos da loja, dentro desse componente chama o componente: `ListPosts/CardPost.vue` que renderiza o card de cada produto;
-- `ListPosts/CardPost.vue`: Componente que renderiza o card do produto, com foto, nome da categoria, titulo, descrição e preço, além do botão de adicionar no carrinho;
-- `Preload/Index.vue`: Componente que exibe um preload enquanto não finaliza a promisse que requisita os produtos, depois que finaliza a promisse ele para de ser renderizado e renderiza o `ListPosts/ListPosts.vue`;
+- `BannersDestaques.vue`: Components com markup dos 3 primeiros banners da página;
+- `VueSlickCarousel`: Componente do plugin: "vue-slick-carousel", para fazer o carousel do produtos, diferente dos demais componente, esse componente não tem um arquivo .vue dele, porque ele é um plugin para fazer o carousel, está sendo chamando no componente: `ListPosts/SlickProducts.vue`;
+- `ListPosts/SlickProducts.vue`: Componente com lista dos produtos da loja, dentro desse componente chama o componente: `ListPosts/CartProduct.vue` que renderiza o card de cada produto;
+- `ListPosts/CartProduct.vue`: Componente que renderiza o card do produto, com foto, titulo e preço, além do botão de adicionar no carrinho;
+- `Preload/Index.vue`: Componente que exibe um preload enquanto não finaliza a promisse que requisita os produtos, depois que finaliza a promisse ele para de ser renderizado e renderiza o `ListPosts/SlickProducts.vue`;
 
 Segue a lista dos componetes renderizados na página de carrinho:
 - `ListCart/ListCart.vue`: Componente com markup da do carrinho como os itens dos produtos inclusos no carrinho, botões de voltar para o site, limpar carrinho e ir para o checkout;
