@@ -43,6 +43,14 @@
 		@media screen and (max-width: 1023px) {
 			display: none;
 		}
+
+		ul {
+			list-style-type: none;
+
+			> li {
+				display: inline-block;
+			}
+		}
 	}
 
 	&__nav-item {

@@ -2,8 +2,7 @@
     article.card-post
         .card-post__container
             figure.card-post__figure(:class="!thumb ? '-silver' : ''")
-                img(:src="thumb" :alt="title" v-if="thumb")
-                img(:src="alt_thumb" :alt="title" v-else)
+                img(:src="thumb" :alt="title")
 
             .card-post__text
                 h3.card-post__title {{ title }}
@@ -22,11 +21,6 @@ export default {
         price: Number,
         thumb: String,
 
-    },
-    data() {
-        return{
-            alt_thumb: require('@/assets/img/logo.jpg'),
-        }
     },
     methods: {
         addProd(id_product) {            

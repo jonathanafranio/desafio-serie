@@ -12,12 +12,15 @@
                 img(:src="logo" alt="MKT Place")
 
             nav.header__nav(v-if="menu")
-                router-link(
-                    v-for="link in menu"
-                    :to="link.href"
-                    v-bind:key="`desktop ${link.href}`"
-                    class="header__nav-item"
-                ) {{ link.text }}
+                ul
+                    li(
+                        v-for="link in menu"
+                        v-bind:key="`desktop ${link.href}`"
+                    )
+                        router-link(
+                            :to="link.href"
+                            class="header__nav-item"
+                        ) {{ link.text }}
 
             div.header__right
                 SearchHeader
