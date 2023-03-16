@@ -1,5 +1,5 @@
 <template lang="pug">
-    div
+    div(:class="page_atual !== 'index' ? 'internas' : 'home'")
         Header
 
         <slot />
@@ -15,6 +15,11 @@ export default {
     components: {
         Header,
         Footer
+    },
+    data() {
+        return {
+            page_atual: this.$route.name 
+        }
     },
     methods: {
         async tras_products() {

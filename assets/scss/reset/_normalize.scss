@@ -12,6 +12,10 @@ body {
 	font-family: $main-font;
 	color: $text-color;
 	background: $bg-body;
+
+	.internas {
+		padding-top: 105px;
+	}
 }
 
 a {

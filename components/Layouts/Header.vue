@@ -1,5 +1,5 @@
 <template lang="pug">
-    header.header
+    header.header(:class="page_atual !== 'index' ? '-active' : ''")
         div.header__upper {{ upper_txt }}
 
         div.container
@@ -29,14 +29,16 @@
                         <circle cx="9.5" cy="5.5" r="3.5" fill="currentColor"/>
                     </svg>
  
-                router-link.header__cart(to="/cart")
-                    CartIcon
-                    span.header__cart-count {{ cart_quantity }}
-
-                .header__cart(style="display: none")
-                    router-link.header__cart-link(to="/cart")
+                div.header__cart-wrap
+                    a.header__cart(href="#" @click.prevent="toggleCart")
                         CartIcon
                         span.header__cart-count {{ cart_quantity }}
+
+                    CartHeader(
+                        :cart_quantity="cart_quantity"
+                        v-if="cart_open" 
+                        v-on:close-cart="toggleCart"
+                    )
 
             div.menu-nav-mobile(:class="menu_mobile ? '-opened' : ''")
                 button.menu-nav-mobile__btn-close(@click="menu_mobile = false")
@@ -56,15 +58,16 @@
 </template>
 
 <script>
-//import SearchForm from '@/components/SearchForm'
 import SearchHeader from './SearchHeader'
 import CartIcon from './CartIcon'
+import CartHeader from './CartHeader'
 
 export default {
     name: 'Header',
     components: {
         SearchHeader,
-        CartIcon
+        CartIcon,
+        CartHeader
     },
     data() {
         return {
@@ -76,10 +79,18 @@ export default {
                 { text: 'Lançamentos', href: '/' },
                 { text: 'born in chaos', href: '/' }
             ],
+            page_atual: this.$route.name,
+            cart_open: false,
         }
     },
-    watch: {
-
+    methods: {
+        toggleCart() {
+            if(window.screen.width > 1024) {
+                this.cart_open = ! this.cart_open
+            } else {
+                this.$route.push('/cart')
+            }
+        }
     },
     computed: {
         cart_quantity() {
@@ -89,7 +100,7 @@ export default {
         },
     },
     created() {
-        if(process.browser) {
+        if(process.browser && this.page_atual === 'index') {
             window.addEventListener("scroll", function () {
                 const first_banners = document.querySelectorAll('.heros__item')[0].clientHeight
                 //const [height, scrollY] = [window.screen.height, window.scrollY];

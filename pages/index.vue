@@ -21,11 +21,7 @@
             SlickProducts(
                 title="Destaques"
                 :products="products"
-            )
-
-
-
-            
+            )         
 
 
 </template>
