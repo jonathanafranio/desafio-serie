@@ -93,10 +93,6 @@ export default {
                 {
                     title: "Contato",
                     url: '#'
-                },
-                {
-                    title: "Parte 2",
-                    url: '#'
                 }
                 
             ],
