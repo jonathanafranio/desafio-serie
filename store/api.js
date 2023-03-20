@@ -11,10 +11,18 @@ export const mutations = {
 }
 export const actions = {
     async get_products({ commit }, {}) {
-        const baseUrl = 'https://fakestoreapi.com/products/'
+        //const baseUrl = 'https://fakestoreapi.com/products/'
+        const baseUrl = `${location.origin}/fakestoreapi.com.json`
         commit('update_state', { loading: true })
         let products = null;
-        await fetch(`${baseUrl}`)
+        const optionRequest = {
+            method: "GET", 
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+        await fetch(`${baseUrl}`, optionRequest)
             .then((r) => r.json())
             .then(p => {
                 commit('update_state', { loading: false })
